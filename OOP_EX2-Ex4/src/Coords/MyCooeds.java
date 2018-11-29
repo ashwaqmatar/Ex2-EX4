@@ -62,7 +62,7 @@ public class MyCooeds implements coords_converter {
 	@Override
 	public boolean isValid_GPS_Point(Point3D p) {
 		boolean   isValid = true;
-		if (p.x()<-180 || p.x() >180 ||p.y() <-90 || p.y() >90 || p.z() <-450) {
+		if (p.x()<-180 && p.x() >180 && p.y() <-90 && p.y() >90 && p.z() <-450) {
 			return isValid;
 		}
 
