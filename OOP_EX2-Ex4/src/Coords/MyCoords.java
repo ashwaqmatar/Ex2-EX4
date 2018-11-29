@@ -36,8 +36,8 @@ public class MyCoords implements coords_converter {
 	public double distance3d(Point3D gps0, Point3D gps1)
 	{
 		double Dis_x = Math.sin((gps1.x()-gps0.x())*(PI/180))*earthR;
-		double Dis_y = Math.sin((gps1.y()-gps0.y())*(PI/180))*Lon_Norm(gps0.x())*earthR;
-		double Dis_z = gps1.z()-gps0.z();
+		double Dis_y = Math.sin((gps1.y()-gps0.y())*(PI/180))*Lon_Norm(gps0.x())*earthR;		
+		
 		double distance = Math.sqrt((Dis_x*Dis_x) + (Dis_y*Dis_y));
 		return distance;
 
