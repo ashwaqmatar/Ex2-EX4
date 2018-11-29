@@ -11,13 +11,32 @@ public class MyCooeds implements coords_converter {
 
 		double Lon_Norm = Math.cos(Point3D.r2d(x));
 		return Lon_Norm;}
+<<<<<<< HEAD
 	/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 	@Override
 	public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
 		boolean Isgood =isValid_GPS_Point(gps);
 		if (!Isgood) {
 			System.out.println("Invalid coordinates");
+=======
+		/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
+		@Override
+		public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
+			boolean Isgood =isValid_GPS_Point(gps);
+			if (!Isgood) {
+				System.out.println("Invalid coordinates");
+			}
+			double R_lat = Math.asin(local_vector_in_meter.x()/earthR);
+			double latDifference =Point3D.r2d(R_lat);
+			double dest_latvalue=gps.x()+latDifference;
+			double raded_lon = Math.asin((local_vector_in_meter.y() / (earthR * Lon_Norm(gps.x()))));
+			double lonDifference = Point3D.r2d(raded_lon);
+			double dest_lonvalue = gps.y() + lonDifference;
+			double dest_altvalue = local_vector_in_meter.z() + gps.z();
+			return new Point3D(dest_latvalue, dest_lonvalue, dest_altvalue);
+>>>>>>> branch 'master' of https://github.com/ahmaddregat/Ex2-EX4.git
 		}
+<<<<<<< HEAD
 		double R_lat = Math.asin(local_vector_in_meter.x()/earthR);
 		double latDifference =Point3D.r2d(R_lat);
 		double dest_latvalue=gps.x()+latDifference;
@@ -38,12 +57,33 @@ public class MyCooeds implements coords_converter {
 		double Dis_z = gps1.z()-gps0.z();
 		double distance = Math.sqrt((Dis_x*Dis_x) + (Dis_y*Dis_y));
 		return distance;
+=======
+>>>>>>> branch 'master' of https://github.com/ahmaddregat/Ex2-EX4.git
 
+<<<<<<< HEAD
 	}
 
 
 
 
+=======
+
+		/** computes the 3D distance (in meters) between the two gps like points */
+		@Override
+		public double distance3d(Point3D gps0, Point3D gps1)
+		{
+			double Dis_x = Math.sin((gps1.x()-gps0.x())*(PI/180))*earthR;
+			double Dis_y = Math.sin((gps1.y()-gps0.y())*(PI/180))*Lon_Norm(gps0.x())*earthR;
+			double Dis_z = gps1.z()-gps0.z();
+			double distance = Math.sqrt((Dis_x*Dis_x) + (Dis_y*Dis_y));
+			return distance;
+
+		}
+
+
+
+	
+>>>>>>> branch 'master' of https://github.com/ahmaddregat/Ex2-EX4.git
 
 	/** computes the 3D vector (in meters) between two gps like points */
 	@Override
@@ -56,7 +96,11 @@ public class MyCooeds implements coords_converter {
 
 		double diff_lat_rad =Math.toRadians(diff_lat);
 		double diff_lon_rad =Math.toRadians(diff_lon);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> branch 'master' of https://github.com/ahmaddregat/Ex2-EX4.git
 		double lat_meter = Math.sin(diff_lat_rad)*earthR;
 		double lon_meter = Math.sin(diff_lon_rad)*earthR*Lon_Norm(gps0.x());
 
