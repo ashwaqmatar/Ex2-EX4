@@ -4,7 +4,7 @@ import Geom.Point3D;
 
 public class MyCooeds implements coords_converter {
 	public MyCooeds() {}
-	private long earthR = 6371*1000; //Radios of earth in meter
+	private final  long  earthR = 6371*1000; //Radios of earth in meter
 	
 	
 
@@ -25,6 +25,7 @@ public class MyCooeds implements coords_converter {
           double dest_altvalue = local_vector_in_meter.z() + gps.z();
           return new Point3D(dest_latvalue, dest_lonvalue, dest_altvalue);
 	}
+	
 	 
 	/** computes the 3D distance (in meters) between the two gps like points */
 	@Override
@@ -42,6 +43,10 @@ public class MyCooeds implements coords_converter {
 	@Override
 	public Point3D vector3D(Point3D gps0, Point3D gps1) {
 
+//		double lonNorm = Math.cos(Point3D.r2d(gps0.x()));;
+//		double vec_x = Math.sin((gps1.x()-gps0.x())*(Math.PI/180))*earthR;
+//		double vec_y = Math.sin((gps1.y()-gps0.y())*(Math.PI/180))*lonNorm*earthR;
+//		double vec_z = gps1.z()-gps0.z();
 	}
 	/** computes the polar representation of the 3D vector be gps0-->gps1 
 	 * Note: this method should return an azimuth (aka yaw), elevation (pitch), and distance*/
@@ -56,6 +61,12 @@ public class MyCooeds implements coords_converter {
 	 */
 	@Override
 	public boolean isValid_GPS_Point(Point3D p) {
+		boolean   isValid = true;
+		if (p.x()<-180 || p.x() >180 ||p.y() <-90 || p.y() >90 || p.z() <-450) {
+			return isValid;
+		}
+
+		return isValid=false  ;
 
 	}
 
