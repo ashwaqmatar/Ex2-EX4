@@ -3,10 +3,14 @@ package Coords;
 import Geom.Point3D;
 
 public class MyCoords implements coords_converter {
-	public MyCoords() {}
+
+	/**
+	 * RADUIS_EARTH = Constant that defines the radius of the earth.  
+	 * https://en.wikipedia.org/wiki/Earth_radius
+	 */
 	private final  long  earthR = 6371*1000; //Radios of earth in meter
 	private final  double  PI= Math.PI;
-
+	public MyCoords() {}
 	public double Lon_Norm (double x ) {
 
 		double Lon_Norm = Math.cos(Point3D.r2d(x));
@@ -16,10 +20,7 @@ public class MyCoords implements coords_converter {
 	/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 	@Override
 	public Point3D add(Point3D gps, Point3D local_vector_in_meter) {
-		boolean Isgood =isValid_GPS_Point(gps);
-		if (!Isgood) {
-			System.out.println("Invalid coordinates");
-		}
+
 		double R_lat = Math.asin(local_vector_in_meter.x()/earthR);
 		double latDifference =Point3D.r2d(R_lat);
 		double dest_latvalue=gps.x()+latDifference;
@@ -37,7 +38,7 @@ public class MyCoords implements coords_converter {
 	{
 		double Dis_x = Math.sin((gps1.x()-gps0.x())*(PI/180))*earthR;
 		double Dis_y = Math.sin((gps1.y()-gps0.y())*(PI/180))*Lon_Norm(gps0.x())*earthR;		
-		
+
 		double distance = Math.sqrt((Dis_x*Dis_x) + (Dis_y*Dis_y));
 		return distance;
 
