@@ -1,13 +1,13 @@
 package GIS;
 
+import Coords.MyCoords;
 import Geom.Geom_element;
 import Geom.Point3D;
 
 public class myGIS_element implements GIS_element {
-	
 	MetaData MD ;
-	 Point3D gps;
-	private String MAC;
+	Point3D gps;
+
 	private String SSID_name;
 	private String AuthMode;
 	private double Lat;
@@ -17,179 +17,113 @@ public class myGIS_element implements GIS_element {
 	private int RSSI; 
 	private int AccuracyMeters;
 	private String type;
-	
+	private String MAC;
+
+
+	/**
+	 * this Constractor include all the information foreach element.
+	 * all the elements that the constartor get he is String type cuse we read it from csv file.
+	 * 
+	 * @param MAC
+	 * @param SSID
+	 * @param AuthMode
+	 * @param FirstSeen
+	 * @param Channel
+	 * @param RSSI
+	 * @param Lat
+	 * @param Lon
+	 * @param AltitudeMeters
+	 * @param AccuracyMeters
+	 * @param type
+	 */
 	public myGIS_element(String MAC , String SSID_name,String AuthMode,String Channel,
 			String RSSI,String Lat,String Lon , String  AltitudeMeters,String AccuracyMeters, String type) {
 		// TODO Auto-generated constructor stub
-		
+		setgps(Lat,Lon,AltitudeMeters);
+		MD=new MetaData();
+
+		setAuthMode(AuthMode); 
+		setRSSI(RSSI); 
+		setType(type);; 
+		setAccuracyMeters(AccuracyMeters);		
+		setChannel(Channel); 
 	}
 
-	/**
-	 * @return the mD
-	 */
-	public MetaData getMD() {
-		return MD;
-	}
+	/// Getters ////
 
-	/**
-	 * @param mD the mD to set
-	 */
-	public void setMD(MetaData mD) {
-		MD = mD;
-	}
-
-	/**
-	 * @return the gps
-	 */
-	public Point3D getGps() {
-		return gps;
-	}
-
-	/**
-	 * @param gps the gps to set
-	 */
-	public void setGps(Point3D gps) {
-		this.gps = gps;
-	}
-
-	/**
-	 * @return the mAC
-	 */
 	public String getMAC() {
 		return MAC;
 	}
 
-	/**
-	 * @param mAC the mAC to set
-	 */
-	public void setMAC(String mAC) {
-		MAC = mAC;
-	}
-
-	/**
-	 * @return the sSID_name
-	 */
 	public String getSSID_name() {
 		return SSID_name;
 	}
 
-	/**
-	 * @param sSID_name the sSID_name to set
-	 */
-	public void setSSID_name(String sSID_name) {
-		SSID_name = sSID_name;
-	}
-
-	/**
-	 * @return the authMode
-	 */
 	public String getAuthMode() {
 		return AuthMode;
 	}
 
-	/**
-	 * @param authMode the authMode to set
-	 */
-	public void setAuthMode(String authMode) {
-		AuthMode = authMode;
-	}
-
-	/**
-	 * @return the lat
-	 */
 	public double getLat() {
 		return Lat;
 	}
 
-	/**
-	 * @param lat the lat to set
-	 */
-	public void setLat(double lat) {
-		Lat = lat;
-	}
-
-	/**
-	 * @return the lon
-	 */
 	public double getLon() {
 		return Lon;
 	}
 
-	/**
-	 * @param lon the lon to set
-	 */
-	public void setLon(double lon) {
-		Lon = lon;
-	}
-
-	/**
-	 * @return the altitudeMeters
-	 */
 	public double getAltitudeMeters() {
 		return AltitudeMeters;
 	}
 
-	/**
-	 * @param altitudeMeters the altitudeMeters to set
-	 */
-	public void setAltitudeMeters(double altitudeMeters) {
-		AltitudeMeters = altitudeMeters;
-	}
-
-	/**
-	 * @return the channel
-	 */
 	public int getChannel() {
 		return Channel;
 	}
 
-	/**
-	 * @param channel the channel to set
-	 */
-	public void setChannel(int channel) {
-		Channel = channel;
-	}
-
-	/**
-	 * @return the rSSI
-	 */
 	public int getRSSI() {
 		return RSSI;
 	}
 
-	/**
-	 * @param rSSI the rSSI to set
-	 */
-	public void setRSSI(int rSSI) {
-		RSSI = rSSI;
-	}
-
-	/**
-	 * @return the accuracyMeters
-	 */
-	public int getAccuracyMeters() {
+	public double getAccuracyMeters() {
 		return AccuracyMeters;
 	}
 
-	/**
-	 * @param accuracyMeters the accuracyMeters to set
-	 */
-	public void setAccuracyMeters(int accuracyMeters) {
-		AccuracyMeters = accuracyMeters;
-	}
-
-	/**
-	 * @return the type
-	 */
 	public String getType() {
 		return type;
 	}
+	/// end Getters //
 
-	/**
-	 * @param type the type to set
-	 */
+	/// Setters ///
+
+	public void setChannel(String Channel) {
+		int theChannel = Integer.parseInt(Channel);
+		this.Channel = theChannel;
+	}
+	public void setRSSI(String RSSI) {
+		int theRSSI = Integer.parseInt(RSSI);
+		this.RSSI = theRSSI;
+	}
+	public void setAccuracyMeters(String AccuracyMeters) {
+
+		double theAccuracyMeters = Double.parseDouble(AccuracyMeters);
+		this.AccuracyMeters =(int) theAccuracyMeters;
+	}
+
+	public void setgps(String lat, String lon , String AltitudeMeters) {
+		gps = new Point3D(String_2_Point3D(lat,lon,AltitudeMeters));
+	}	
+
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public void setAuthMode(String AuthMode) {
+		this.AuthMode = AuthMode;
+	}
+	public void setSSID_name(String name) {
+		this.SSID_name = name;
+	}
+	public void setMAC(String MAC) {
+		this.MAC = MAC;
 	}
 
 	@Override
@@ -207,8 +141,20 @@ public class myGIS_element implements GIS_element {
 	@Override
 	public void translate(Point3D vec) {
 		// TODO Auto-generated method stub
+		MyCoords m = new MyCoords();
+		Point3D ans = m.add(this.gps, vec);
+		gps = new Point3D(ans.x(),ans.y(),ans.z());
 
 	}
+	private Point3D String_2_Point3D(String lat , String lon , String AltitudeMeters) {
+
+		Double x = Double.parseDouble(lat);
+		Double y = Double.parseDouble(lon);
+		Double z = Double.parseDouble(AltitudeMeters);
+
+		return new Point3D(x,y,z);
+	}
+
 
 
 }
