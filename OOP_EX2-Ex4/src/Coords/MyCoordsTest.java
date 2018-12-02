@@ -15,14 +15,6 @@ class MyCoordsTest {
 
 	MyCoords mc = new MyCoords();
 
-	//constructor
-	public MyCoordsTest(Point3D p1,
-	 Point3D p2,
-	Point3D local_vector_in_meter) {
-		this.p1=p1;
-		this.p2=p2;
-		this.local_vector_in_meter=local_vector_in_meter;
-	}
 	@Before
 	public void setup() {
 		// Coordinates copied from the examples in the attached Exel file.
