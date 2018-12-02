@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class GISproject implements GIS_project{
 	private MetaData data;
-	public GISproject(MetaData data) {
+	public GISproject() {//MetaData data
 	super();
 	this.data=data;
 	}

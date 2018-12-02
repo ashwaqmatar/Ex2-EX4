@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import GIS.GIS_layer;
 import GIS.myGIS_element;
 
 /**
@@ -54,6 +55,11 @@ public class CSVReader {
 		{
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	public static GIS_layer CSVReader(String absolutePath) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

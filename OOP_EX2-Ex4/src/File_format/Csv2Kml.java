@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import GIS.GIS_project;
+import GIS.GISproject;
+
 /**
  * this function gets to paths, one for in and one for out, and convert one CSV file to one kml file
  *
@@ -39,7 +42,16 @@ public class Csv2Kml {
 		}
 		return headers;
 	}
-	
+    /**
+     * Convert folder to KML.
+     *
+     * @param project_from_folder multiple csv files to be converted.
+     */
+    public static void toKML(GISproject project_from_folder)
+    {
+        KmlWriter.writeStringToKML(project_from_folder);
+    }
+    
 	/**
 	 * this function activated the creation of the kml file from the csv file
 	 * @throws IOException

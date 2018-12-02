@@ -1,18 +1,18 @@
 package GIS;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 
 public class GISlayer implements GIS_layer {
 	private MetaData data;
-	public GISlayer(MetaData data) {
-	super();
-	this.data=data;
-	}
-Set<GIS_element> ST=new HashSet <GIS_element>(); 
+ArrayList<GIS_element> ST=new ArrayList  <GIS_element>(); 
 	// TODO Auto-generated constructor stub
+	public GISlayer(ArrayList<myGIS_element> arrayList) {
+		for (int i = 0; i < arrayList.size(); i++) {
+			this.ST.add(arrayList.get(i));
+		}
+	}
 
 	@Override
 	public boolean add(GIS_element arg0) {
