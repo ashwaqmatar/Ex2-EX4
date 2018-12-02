@@ -18,9 +18,22 @@ class MyCoordsTest {
 	 Point3D p3;
 
 
+<<<<<<< HEAD
 	@BeforeEach
 	void setUp() throws Exception {
 		coords =new MyCoords();
+=======
+	//constructor
+	public MyCoordsTest(Point3D p1,
+	 Point3D p2,
+	Point3D local_vector_in_meter) {
+		this.p1=p1;
+		this.p2=p2;
+		this.local_vector_in_meter=local_vector_in_meter;
+	}
+	@Before
+	public void setup() {
+>>>>>>> branch 'master' of https://github.com/ahmaddregat/Ex2-EX4.git
 		// Coordinates copied from the examples in the attached Exel file.
 		p1 =new Point3D(32.103315, 35.209039, 670);
 		p2 = new Point3D(32.106352, 35.205225, 650);
