@@ -1,5 +1,4 @@
 package File_format;
-import java.io.File;
 
 
 public class CSV_Condition implements ConditionsOfFile {

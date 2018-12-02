@@ -1,5 +1,4 @@
 package File_format;
-import java.io.File;
 
 public interface ConditionsOfFile {
 	

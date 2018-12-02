@@ -4,7 +4,8 @@ package File_format;
  */
 
 /**
- * @author Ali Masarweh
+ * @author Ahmad dregat
+ * 
  *
  */
 public interface FileBuilder {

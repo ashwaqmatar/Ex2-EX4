@@ -1,15 +1,13 @@
 package File_format;
-import java.io.File;
 
 public class KML_Condition implements ConditionsOfFile{
 
 	
 	/**
-	 * dvdgdgsdgS
+	 * *filter information* method will filter the most relevant information (MAC & the coordinations)
 	 * @param pathname
 	 */
 
-//*filter information* method will filter the most relevant information (MAC & the coordinations)
 	public boolean filterInfo(String data){
 		String[] split =data.split(">");
 		if(split[0].equals("<name"))
