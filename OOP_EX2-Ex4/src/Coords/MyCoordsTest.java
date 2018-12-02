@@ -56,7 +56,7 @@ class MyCoordsTest {
 		assertEquals(p3.z(), pTemp.z(),0.001,"The Vector atitude is wrong");	
 	}
 
-	@Test
+	  @Test
 	void testAzimuth_elevation_dist() {
 		double [] azimuth_elevation_dist= coords.azimuth_elevation_dist(p1, p2);
 		double [] expected_r= {313.2304203264989, 92.32476351738653, 493.05233183241336};
