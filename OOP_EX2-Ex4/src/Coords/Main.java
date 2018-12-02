@@ -1,6 +1,5 @@
 package Coords;
 
-import com.sun.prism.image.Coords;
 
 import Geom.Point3D;
 
