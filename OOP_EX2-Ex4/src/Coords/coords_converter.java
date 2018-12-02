@@ -3,11 +3,11 @@ package Coords;
 import Geom.Point3D;
 
 /**
- * This interface represents a basic coordinate system converter, including:
- * 1. The 3D vector between two lat,lon, alt points 
- * 2. Adding a 3D vector in meters to a global point.
- * 3. convert a 3D vector from meters to polar coordinates
- * @author Boaz Ben-Moshe
+ *   This interface represents a basic coordinate system converter, including:
+ *   1. The 3D vector between two lat,lon, alt points 
+ *   2. Adding a 3D vector in meters to a global point.
+ *   3. convert a 3D vector from meters to polar coordinates
+ *   @author Boaz Ben-Moshe
  *
  */
 public interface coords_converter {
