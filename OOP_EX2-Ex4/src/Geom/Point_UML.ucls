@@ -12,7 +12,7 @@
   </interface>  
   <class id="2" language="java" name="Geom.Circle" project="Ex2-EX4" file="/Ex2-EX4/OOP_EX2-Ex4/src/Geom/Circle.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="223" width="187" x="832" y="-750"/>    
+    <position height="223" width="187" x="851" y="-759"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -28,23 +28,29 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="4">    
+  <realization id="4">    
+    <bendpoint x="744" y="-285"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="5">    
+    <bendpoint x="757" y="-327"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <association id="6">    
+    <bendpoint x="742" y="-313"/>    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="5" name="_cen"/>      
-      <multiplicity id="6" minimum="0" maximum="1"/>    
+      <attribute id="7" name="_cen">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="8" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="7">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <realization id="8">    
-    <bendpoint x="536" y="-561"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
