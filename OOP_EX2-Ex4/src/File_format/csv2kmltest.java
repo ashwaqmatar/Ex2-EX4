@@ -6,7 +6,7 @@ public class csv2kmltest {
 
 	public static void main(String[] args) {
 		String source_file ="C:\\Users\\user\\Desktop\\data\\CSV123.csv";
-		String output_file ="C:\\Users\\user\\Desktop\\data\\KML123.kml";
+		String output_file ="C:\\Users\\user\\Desktop\\data\\KML5555123.kml";
 		try{
 		Csv2Kml c2k = new Csv2Kml(source_file,output_file);
 		c2k.run();

@@ -1,18 +1,14 @@
 package GIS;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class GISlayer implements GIS_layer {
 	private MetaData data;
-ArrayList<GIS_element> ST=new ArrayList  <GIS_element>(); 
+HashSet<GIS_element> ST=new HashSet <GIS_element>(); 
 	// TODO Auto-generated constructor stub
-	public GISlayer(ArrayList<myGIS_element> arrayList) {
-		for (int i = 0; i < arrayList.size(); i++) {
-			this.ST.add(arrayList.get(i));
-		}
-	}
+
 
 	@Override
 	public boolean add(GIS_element arg0) {
@@ -95,7 +91,7 @@ ArrayList<GIS_element> ST=new ArrayList  <GIS_element>();
 	@Override
 	public Meta_data get_Meta_data() {
 		// TODO Auto-generated method stub
-		return data;
+		return this.data;
 	}
 
 }
