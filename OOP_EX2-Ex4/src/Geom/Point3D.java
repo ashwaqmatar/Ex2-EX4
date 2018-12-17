@@ -34,7 +34,10 @@ public class Point3D implements Geom_element, Serializable
 	////////////////////////////       methods        /////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 
-	
+	public Point3D(String lat , String lon , String AltitudeMeters) {
+		String_2_Point3D(lat, lon ,AltitudeMeters);
+	}
+
 	public double x() {return _x;}
 	public double y() {return _y;}
 	public double z() {return _z;}
@@ -216,6 +219,14 @@ public final static int DOWN = 6, UP = 7;
 		else ans = 450-a_deg;
 		return ans;
 	}
+	public void String_2_Point3D(String lat , String lon , String AltitudeMeters) {
+
+		_x = Double.parseDouble(lat);
+		_y = Double.parseDouble(lon);
+		_z = Double.parseDouble(AltitudeMeters);
+
+	}
+
 	/** return the vertical angles in DEGREES of the vector this-->p
 	 * 
 	 * */

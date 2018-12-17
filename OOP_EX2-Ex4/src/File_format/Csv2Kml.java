@@ -42,16 +42,7 @@ public class Csv2Kml {
 		}
 		return headers;
 	}
-    /**
-     * Convert folder to KML.
-     *
-     * @param project_from_folder multiple csv files to be converted.
-     */
-    public static void toKML(GISproject project_from_folder)
-    {
-        KmlWriter.writeStringToKML(project_from_folder);
-    }
-    
+  
 	/**
 	 * this function activated the creation of the kml file from the csv file
 	 * @throws IOException
