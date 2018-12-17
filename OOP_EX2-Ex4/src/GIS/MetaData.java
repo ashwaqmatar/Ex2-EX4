@@ -11,10 +11,18 @@ private long data;
 
 
 	public MetaData() {	
-	this.color=color;
-	this.data=data;
-	this.Orientation=Orientation;
+	this.color=getColor();
+	this.data=getUTC();
+	this.Orientation=get_Orientation();
 	}
+	/**
+	 * @param data the data to set
+	 */
+	public void setData(long data) {
+		this.data = data;
+	}
+
+
 	/**
 	 * returns the Universal Time Clock associated with this data;
 	 */
